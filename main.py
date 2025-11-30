@@ -6,19 +6,19 @@ print("Choose your option : \n" \
 "-h: Show table of commands\n\n" \
 "To exit type exit.\n")
 
-option = input("Option : ")
+option = input("mth> ")
 
 while True:
-    if option == 1:
+    if option == "-d":
         derivate()
+        option = input("mth> ")
 
-        choice = input("Do you want to continue : (y/n) : ")
-        if choice == "n":
-            break
-
-    if option == 2:
+    if option == "exit":
         break
 
     if option == "-h":
         print_sympy_commands()
-        break
+        option = input("mth> ")
+    
+    else:
+        option = input("mth> ")
