@@ -1,10 +1,10 @@
 from derivative import *
 from sympy_commands import *
 
-print("Choose your option : " \
-"1: derivate"
-"2: exit" \
-"-h: Show table of commands")
+print("Choose your option : \n" \
+"-d: derivate\n" \
+"-h: Show table of commands\n\n" \
+"To exit type exit.\n")
 
 option = input("Option : ")
 
