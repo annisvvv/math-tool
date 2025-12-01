@@ -1,8 +1,7 @@
 import sympy as sp
 from sympy_commands import *
 
-def derivate():
-
+def var():
     while True:
         # creating the variable for sympy
         input_variable = input("give me the variable (-h for help) : ")
@@ -11,8 +10,10 @@ def derivate():
             print_sympy_commands()
         else:
             symp_variable = sp.symbols(input_variable)
-            break
+            return symp_variable
 
+
+def func():
     while True:
         # demand to the user to write the function
         function = input("what is your function (-h for help) : ")
@@ -21,7 +22,11 @@ def derivate():
             print_sympy_commands()
         else:
             function_input = sp.sympify(function)
-            break
+            return function_input
+
+def derivate():
+    symp_variable = var()
+    function_input = func()
 
     # derivate the function
     derivative = sp.diff(function_input, symp_variable)
