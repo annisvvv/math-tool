@@ -20,7 +20,6 @@ def tklimit():
              limit_side == None
              break
         else:
-             limit_side = "dir='" + limit_side + "'"
              break
              
     return where_limit, limit_side
@@ -30,7 +29,15 @@ def limit():
     function_input = func()
     where_limit, limit_side = tklimit()
 
-    limitt = sp.limit(function_input, symp_variable, where_limit, limit_side)
+    try:
+        if limit_side is None:
+            limitt = sp.limit(function_input, symp_variable, where_limit, dir=limit_side)
+            print(f"Lim {function_input} = {limitt}")
+            print(f"{symp_variable} ---> {where_limit, limit_side}")
+        else:
+            limitt = sp.limit(function_input, symp_variable, where_limit, dir=limit_side)
+            print(f"Lim {function_input} = {limitt}")
+            print(f"{symp_variable} ---> {where_limit, limit_side}")
 
-    print(f"Lim {function_input} = {limitt}")
-    print(f"{symp_variable} ---> {where_limit, limit_side}")
+    except Exception:
+        print("The function is not defined at that point please specify the limit side !")
